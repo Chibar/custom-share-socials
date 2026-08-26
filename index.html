@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>share-buttons — кнопки «Поделиться» для сайта</title>
+<meta name="description" content="Простые кнопки «Поделиться»: Telegram, Одноклассники, ВКонтакте, MAX, WhatsApp. Без зависимостей, один файл CSS и один JS.">
+<link rel="stylesheet" href="share-buttons.css">
+<style>
+  body { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; font: 16px/1.6 -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #1a1a1a; }
+  h1 { font-size: 28px; margin: 0 0 8px; }
+  h2 { font-size: 19px; margin: 40px 0 12px; }
+  p { margin: 0 0 16px; }
+  .lead { color: #555; }
+  .demo { margin: 24px 0; padding: 20px; border: 1px solid #e5e5e5; border-radius: 8px; }
+  pre { margin: 0 0 16px; padding: 14px; overflow-x: auto; background: #f6f6f6; border-radius: 6px; font-size: 13px; line-height: 1.5; }
+  code { font-family: ui-monospace, Consolas, Menlo, monospace; }
+  p code, li code { background: #f6f6f6; padding: 1px 5px; border-radius: 4px; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e5e5e5; vertical-align: top; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #e5e5e5; font-size: 14px; color: #666; }
+  a { color: #0b62d0; }
+</style>
+</head>
+<body>
+
+<h1>share-buttons</h1>
+<p class="lead">Кнопки «Поделиться» для Telegram, Одноклассников, ВКонтакте, MAX и WhatsApp. Без зависимостей: один CSS и один JS, вместе ~2 КБ. Работают и на десктопе, и на мобильных.</p>
+
+<h2>Демо</h2>
+<div class="demo">
+  <div class="share-buttons">
+    <span class="share-buttons__label">Поделиться:</span>
+    <a class="share-btn share-btn--tg"  data-share="telegram" href="#">Телеграм</a>
+    <a class="share-btn share-btn--ok"  data-share="ok"       href="#">Одноклассники</a>
+    <a class="share-btn share-btn--vk"  data-share="vk"       href="#">ВКонтакте</a>
+    <a class="share-btn share-btn--max" data-share="max"      href="#">MAX</a>
+    <a class="share-btn share-btn--wa"  data-share="whatsapp" href="#">WhatsApp</a>
+  </div>
+</div>
+<p>Кнопки делятся адресом текущей страницы — нажмите любую, откроется окно соцсети.</p>
+
+<h2>Установка</h2>
+<p>Скачайте <a href="share-buttons.css">share-buttons.css</a> и <a href="share-buttons.js">share-buttons.js</a>, положите рядом со своими файлами и подключите:</p>
+<pre><code>&lt;link rel="stylesheet" href="share-buttons.css"&gt;
+&lt;script src="share-buttons.js" defer&gt;&lt;/script&gt;</code></pre>
+
+<p>Затем вставьте блок в нужное место страницы:</p>
+<pre><code>&lt;div class="share-buttons"&gt;
+  &lt;span class="share-buttons__label"&gt;Поделиться:&lt;/span&gt;
+  &lt;a class="share-btn share-btn--tg"  data-share="telegram" href="#"&gt;Телеграм&lt;/a&gt;
+  &lt;a class="share-btn share-btn--ok"  data-share="ok"       href="#"&gt;Одноклассники&lt;/a&gt;
+  &lt;a class="share-btn share-btn--vk"  data-share="vk"       href="#"&gt;ВКонтакте&lt;/a&gt;
+  &lt;a class="share-btn share-btn--max" data-share="max"      href="#"&gt;MAX&lt;/a&gt;
+  &lt;a class="share-btn share-btn--wa"  data-share="whatsapp" href="#"&gt;WhatsApp&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+
+<p>Ненужные соцсети просто удалите — скрипт инициализирует то, что нашёл.</p>
+
+<h2>Настройки</h2>
+<table>
+  <tr><th>Атрибут</th><th>Где</th><th>Что делает</th></tr>
+  <tr><td><code>data-share</code></td><td>ссылка</td><td>Сеть: <code>telegram</code>, <code>ok</code>, <code>vk</code>, <code>max</code>, <code>whatsapp</code></td></tr>
+  <tr><td><code>data-share-url</code></td><td>контейнер или ссылка</td><td>Адрес вместо текущего (например, канонический URL статьи)</td></tr>
+  <tr><td><code>data-share-title</code></td><td>контейнер или ссылка</td><td>Заголовок/текст сообщения</td></tr>
+  <tr><td><code>share-buttons--column</code></td><td>класс контейнера</td><td>Вертикальная раскладка</td></tr>
+</table>
+<pre><code>&lt;div class="share-buttons"
+     data-share-url="https://example.com/article"
+     data-share-title="Заголовок статьи"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+
+<h2>Динамический контент</h2>
+<p>Если блок добавляется в DOM после загрузки — вызовите <code>ShareButtons.init(контейнер)</code>. Готовую ссылку можно получить и вручную: <code>ShareButtons.link('vk', url, title)</code>.</p>
+
+<footer>
+  MIT. Исходники и issues — на <a href="https://github.com/">GitHub</a>.
+</footer>
+
+<script src="share-buttons.js" defer></script>
+</body>
+</html>

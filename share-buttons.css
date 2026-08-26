@@ -1,0 +1,15 @@
+/* share-buttons — v1.0 */
+.share-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; font-family: Arial, Helvetica, sans-serif; }
+.share-buttons__label { margin-right: 5px; font-size: 14px; }
+.share-buttons a.share-btn { display: inline-block; padding: 10px 20px; color: #fff !important; text-decoration: none !important; border-radius: 5px; font-size: 14px; font-weight: bold; line-height: 1.2; }
+.share-buttons a.share-btn:hover { opacity: .9; }
+.share-buttons a.share-btn:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.share-buttons .share-btn--tg { background: #0088cc !important; }
+.share-buttons .share-btn--ok { background: #ff5900 !important; }
+.share-buttons .share-btn--vk { background: #0077ff !important; }
+.share-buttons .share-btn--max { background: linear-gradient(135deg, #398ef2, #8435e1) !important; }
+.share-buttons .share-btn--wa { background: #25d366 !important; }
+
+/* Вертикальная раскладка: <div class="share-buttons share-buttons--column"> */
+.share-buttons--column { flex-direction: column; align-items: stretch; }
+.share-buttons--column .share-btn { text-align: center; }
