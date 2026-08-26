@@ -3,7 +3,7 @@
 Кнопки «Поделиться» для Telegram, Одноклассников, ВКонтакте, MAX и WhatsApp.
 Без зависимостей: один CSS и один JS, вместе ~2 КБ.
 
-**Демо:** https://USER.github.io/share-buttons/
+**Демо:** https://chibar.github.io/custom-share-socials/
 
 ## Установка
 
@@ -62,7 +62,12 @@ ShareButtons.link('vk', url, title);   // получить готовый URL ш
 
 ## Публикация демо на GitHub Pages
 
-Settings → Pages → Source: `Deploy from a branch` → ветка `main`, папка `/ (root)`.
+Один раз: **Settings → Pages → Source: `GitHub Actions`**.
+
+Дальше каждый push в `main` публикует сайт сам — воркфлоу
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) выкладывает корень
+репозитория как есть, без сборки. Запустить вручную: вкладка Actions →
+Deploy to GitHub Pages → Run workflow.
 
 ## Лицензия
 
